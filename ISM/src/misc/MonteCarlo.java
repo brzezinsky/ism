@@ -14,19 +14,19 @@ import java.util.Random;
 public class MonteCarlo {
     private MonteCarlo(){}
 
-    static double integral(Functor f, double from, double to, int count, double []values) {
+    public static double integral(Functor f, double from, double to, int count, double []values) {
         double result  = 0;
         if (values == null) {
             values = new double[count];
-            Random rnd = new Random(System.currentTimeMillis());
+            Random rnd = new Random((System.currentTimeMillis() >>> 23) | 1000000009L );
             for (int i = 0; i < count; ++i) {
-                values[i] = from + rnd.nextDouble() / (to  - from);
+                values[i] = from + rnd.nextDouble() * (to  - from);
             }
         }
         double multiplier = (to - from) / count;
         for (double t : values) {
             result += f.calculate(t);
         }
-        return result / multiplier;
+        return result * multiplier;
     }
 }
