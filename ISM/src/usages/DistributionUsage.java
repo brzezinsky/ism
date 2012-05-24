@@ -34,7 +34,7 @@ public class DistributionUsage extends Thread {
     }
 
     private void solve() throws Throwable {
-        ExponentialDistribution distribution = new ExponentialDistribution(3);
+        ExponentialDistribution distribution = new ExponentialDistribution(12);
         for (int i = 0; i < 100000; ++i) {
             output.print(distribution.next() + " ");
         } 

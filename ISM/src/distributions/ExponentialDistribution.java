@@ -31,7 +31,7 @@ public class ExponentialDistribution implements IStatistical<Double, Double>{
     }
 
     public double next(double urv) {
-        double  actual = -Math.log(urv) ;
+        double  actual = -Math.log(urv) / p ;
         performed.add(actual);
         return actual;
     }
