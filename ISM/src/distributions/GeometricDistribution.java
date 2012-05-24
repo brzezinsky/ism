@@ -1,5 +1,8 @@
 package distributions;
 
+import primitives.IStatistical;
+import primitives.Statistic;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,7 +13,7 @@ import java.util.Random;
  * Time: 12:39 PM
  * To change this template use File | Settings | File Templates.
  */
-public class GeometricDistribution implements IStatistical<Double, Double>{
+public class GeometricDistribution implements IStatistical<Double, Double> {
 
     private ArrayList<Integer> performed;
 

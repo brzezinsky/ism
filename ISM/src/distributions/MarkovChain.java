@@ -1,5 +1,8 @@
 package distributions;
 
+import primitives.IStatistical;
+import primitives.Statistic;
+
 import java.util.Random;
 
 /**

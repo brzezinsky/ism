@@ -6,7 +6,7 @@ package usages; /**
  * To change this template use File | Settings | File Templates.
  */
 
-import distributions.Functor;
+import primitives.Functor;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

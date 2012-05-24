@@ -1,6 +1,6 @@
 package misc;
 
-import distributions.Functor;
+import primitives.Functor;
 
 import java.util.Random;
 
