@@ -8,33 +8,30 @@ import java.util.Random;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Taras_Brzezinsky
- * Date: 5/24/12
- * Time: 1:01 PM
+ * User: SONY
+ * Date: 25.05.12
+ * Time: 0:47
  * To change this template use File | Settings | File Templates.
  */
-public class  NormalDistribution implements IStatistical<Double, Double> {
+public class ExponentialDistribution implements IStatistical<Double, Double>{
     private ArrayList<Double> performed;
 
-    private double mu;
-    private double D;
+    private double p;
 
     private Random rnd;
 
-    public NormalDistribution(double mu, double D) {
-        this.mu = mu;
-        this.D = D;
+    public ExponentialDistribution(double p) {
+        this.p = p;
         this.performed = new ArrayList<Double>();
         this.rnd = new Random(System.currentTimeMillis());
     }
 
     public double next() {
-        return this.next(rnd.nextDouble(), rnd.nextDouble());
+        return this.next(rnd.nextDouble());
     }
 
-    public double next(double urv1, double urv2) {
-        double actual = Math.sqrt(-2 * Math.log(urv1)) * Math.cos(2 * Math.PI * urv2);
-        actual = actual * Math.sqrt(D) + mu;
+    public double next(double urv) {
+        double  actual = -Math.log(urv) ;
         performed.add(actual);
         return actual;
     }
@@ -45,7 +42,7 @@ public class  NormalDistribution implements IStatistical<Double, Double> {
         for (double t : performed) {
             actual += t;
         }
-        return new Statistic<Double>(mu, actual / N);
+        return new Statistic<Double>(1/ p, actual / N);
     }
 
     public Statistic<Double> getDispersion() {
@@ -55,6 +52,6 @@ public class  NormalDistribution implements IStatistical<Double, Double> {
         for (double t : performed) {
             actual += Math.pow(e - t, 2);
         }
-        return new Statistic<Double>(D, actual / N);
+        return new Statistic<Double>(e / p, actual / N);
     }
 }

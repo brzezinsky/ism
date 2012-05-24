@@ -15,4 +15,12 @@ public class Statistic<T> {
         this.expected = expected;
         this.real = real;
     }
+
+    @Override
+    public String toString() {
+        return "Statistic{" +
+                "expected=" + expected +
+                ", real=" + real +
+                '}';
+    }
 }
